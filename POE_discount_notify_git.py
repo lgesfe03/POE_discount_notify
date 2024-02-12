@@ -4,7 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-look = "Invisible Buff Effect"
+look =      "Invisible Buff Effect"
+look2 =     "Vanishing Dye"
 url = "https://www.pathofexile.com/shop/category/specials"
 # test
 # look = "Gore Stormbind Effect"
@@ -48,8 +49,13 @@ for shop_item in shop_items:
         is_exist = True
         print(shop_item.text)
         Content += str(shop_item.text)
+    elif look2 in name_element.text:
+        # Print the content of the shop item
+        is_exist = True
+        print(shop_item.text)
+        Content += str(shop_item.text) 
 if is_exist == False:
-    print(look + " is NOT on discount!")
+    print(look +" & "+ look2 + " is NOT on discount!")
 else:
     # send part
     LINE_data = {'message': Content}
